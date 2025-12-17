@@ -1,0 +1,9 @@
+{
+  "codeConnect": {
+    "include": ["src/components/ui/**/*.figma.jsx"],
+    "parser": "react",
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  }
+}

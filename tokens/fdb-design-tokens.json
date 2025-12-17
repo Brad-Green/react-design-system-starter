@@ -1,0 +1,149 @@
+{
+  "color": {
+    "brand": {
+      "primary": {
+        "50": { "value": "#faf7fc", "type": "color" },
+        "100": { "value": "#efe8f7", "type": "color" },
+        "200": { "value": "#dacaed", "type": "color" },
+        "300": { "value": "#bca0de", "type": "color" },
+        "400": { "value": "#9e75cf", "type": "color" },
+        "500": { "value": "#804bc0", "type": "color" },
+        "600": { "value": "#64369c", "type": "color" },
+        "700": { "value": "#492871", "type": "color" },
+        "800": { "value": "#2e1947", "type": "color" },
+        "900": { "value": "#130a1d", "type": "color" }
+      },
+      "secondary": {
+        "50": { "value": "#f8f9fc", "type": "color" },
+        "100": { "value": "#ebedf5", "type": "color" },
+        "200": { "value": "#d0d4e7", "type": "color" },
+        "300": { "value": "#aab1d4", "type": "color" },
+        "400": { "value": "#848fc1", "type": "color" },
+        "500": { "value": "#5e6cad", "type": "color" },
+        "600": { "value": "#47538c", "type": "color" },
+        "700": { "value": "#333d66", "type": "color" },
+        "800": { "value": "#202640", "type": "color" },
+        "900": { "value": "#0d0f1a", "type": "color" }
+      }
+    },
+    "neutral": {
+      "grey": {
+        "50": { "value": "#fafafa", "type": "color" },
+        "100": { "value": "#f0f0f0", "type": "color" },
+        "200": { "value": "#dbdbdb", "type": "color" },
+        "300": { "value": "#bfbfbf", "type": "color" },
+        "400": { "value": "#a2a2a2", "type": "color" },
+        "500": { "value": "#868686", "type": "color" },
+        "600": { "value": "#696969", "type": "color" },
+        "700": { "value": "#4d4d4d", "type": "color" },
+        "800": { "value": "#303030", "type": "color" },
+        "900": { "value": "#131313", "type": "color" },
+        "950": { "value": "#050505", "type": "color" }
+      }
+    },
+    "signal": {
+      "success": {
+        "500": { "value": "#3ccf54", "type": "color" },
+        "600": { "value": "#29a93f", "type": "color" }
+      },
+      "warning": {
+        "500": { "value": "#ffb80c", "type": "color" },
+        "600": { "value": "#d29400", "type": "color" }
+      },
+      "error": {
+        "500": { "value": "#d93248", "type": "color" },
+        "600": { "value": "#b12134", "type": "color" }
+      },
+      "info": {
+        "500": { "value": "#0cfbff", "type": "color" },
+        "600": { "value": "#00cfd2", "type": "color" }
+      }
+    },
+    "surface": {
+      "base": { "value": "#fafafa", "type": "color" },
+      "level-1": { "value": "#ffffff", "type": "color" },
+      "level-2": { "value": "#fafafa", "type": "color" },
+      "level-3": { "value": "#f0f0f0", "type": "color" },
+      "action": { "value": "#6d3ba9", "type": "color" },
+      "disabled": { "value": "#e4e4e4", "type": "color" }
+    },
+    "content": {
+      "primary": { "value": "#000000", "type": "color" },
+      "subtle": { "value": "#303030", "type": "color" },
+      "muted": { "value": "#696969", "type": "color" },
+      "action": { "value": "#6d3ba9", "type": "color" },
+      "on-action": { "value": "#ffffff", "type": "color" },
+      "disabled": { "value": "#ffffff", "type": "color" }
+    },
+    "border": {
+      "default": { "value": "#e4e4e4", "type": "color" },
+      "action": { "value": "#6d3ba9", "type": "color" },
+      "disabled": { "value": "#bdbdbd", "type": "color" }
+    }
+  },
+  "spacing": {
+    "0": { "value": 0, "type": "dimension" },
+    "4": { "value": 4, "type": "dimension" },
+    "8": { "value": 8, "type": "dimension" },
+    "12": { "value": 12, "type": "dimension" },
+    "16": { "value": 16, "type": "dimension" },
+    "20": { "value": 20, "type": "dimension" },
+    "24": { "value": 24, "type": "dimension" },
+    "32": { "value": 32, "type": "dimension" },
+    "40": { "value": 40, "type": "dimension" },
+    "48": { "value": 48, "type": "dimension" },
+    "64": { "value": 64, "type": "dimension" },
+    "80": { "value": 80, "type": "dimension" },
+    "96": { "value": 96, "type": "dimension" }
+  },
+  "border": {
+    "radius": {
+      "none": { "value": 0, "type": "dimension" },
+      "sm": { "value": 2, "type": "dimension" },
+      "md": { "value": 4, "type": "dimension" },
+      "lg": { "value": 8, "type": "dimension" },
+      "xl": { "value": 12, "type": "dimension" }
+    },
+    "width": {
+      "none": { "value": 0, "type": "dimension" },
+      "thin": { "value": 1, "type": "dimension" },
+      "medium": { "value": 2, "type": "dimension" },
+      "thick": { "value": 4, "type": "dimension" }
+    }
+  },
+  "typography": {
+    "fontFamily": {
+      "heading": { "value": "Work Sans", "type": "fontFamily" },
+      "body": { "value": "Work Sans", "type": "fontFamily" },
+      "mono": { "value": "ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace", "type": "fontFamily" }
+    },
+    "fontSize": {
+      "xs": { "value": 12, "type": "dimension" },
+      "sm": { "value": 14, "type": "dimension" },
+      "base": { "value": 16, "type": "dimension" },
+      "lg": { "value": 18, "type": "dimension" },
+      "xl": { "value": 20, "type": "dimension" },
+      "2xl": { "value": 24, "type": "dimension" },
+      "3xl": { "value": 30, "type": "dimension" },
+      "4xl": { "value": 36, "type": "dimension" },
+      "5xl": { "value": 48, "type": "dimension" }
+    },
+    "lineHeight": {
+      "none": { "value": 1, "type": "number" },
+      "tight": { "value": 1.25, "type": "number" },
+      "snug": { "value": 1.375, "type": "number" },
+      "normal": { "value": 1.5, "type": "number" },
+      "relaxed": { "value": 1.625, "type": "number" },
+      "loose": { "value": 2, "type": "number" },
+      "4": { "value": 16, "type": "dimension" },
+      "5": { "value": 20, "type": "dimension" },
+      "6": { "value": 24, "type": "dimension" }
+    },
+    "fontWeight": {
+      "normal": { "value": 400, "type": "number" },
+      "medium": { "value": 500, "type": "number" },
+      "semibold": { "value": 600, "type": "number" },
+      "bold": { "value": 700, "type": "number" }
+    }
+  }
+}
