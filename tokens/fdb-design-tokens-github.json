@@ -1,0 +1,63 @@
+{
+  "global": {},
+  "semantic colors/fdb": {
+    "general": {
+      "background": {
+        "value": "{white}",
+        "type": "color",
+        "description": "Use for general backgrounds."
+      },
+      "foreground": {
+        "value": "{slate.950}",
+        "type": "color"
+      },
+      "primary": {
+        "value": "{fdb official.purple}",
+        "type": "color"
+      },
+      "primary foreground": {
+        "value": "{slate.50}",
+        "type": "color"
+      },
+      "secondary": {
+        "value": "{slate.100}",
+        "type": "color"
+      },
+      "secondary foreground": {
+        "value": "{slate.900}",
+        "type": "color"
+      },
+      "muted": {
+        "value": "{slate.100}",
+        "type": "color"
+      },
+      "muted foreground": {
+        "value": "{slate.500}",
+        "type": "color"
+      },
+      "accent": {
+        "value": "{slate.100}",
+        "type": "color",
+        "description": "Level 1, official"
+      },
+      "accent foreground": {
+        "value": "{slate.900}",
+        "type": "color"
+      },
+      "destructive": {
+        "value": "{red.600}",
+        "type": "color"
+      },
+      "border": {
+        "value": "{slate.200}",
+        "type": "color",
+        "description": "level 2, official. See docs."
+      },
+      "input": {
+        "value": "{white}",
+        "type": "color"
+      }
+    }
+  }
+}
+

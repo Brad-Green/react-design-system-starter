@@ -4,19 +4,41 @@ import { css, useTheme } from '@emotion/react'
 import './App.css'
 import { Button } from '@/components/ui/button'
 import { EmotionTokenTest } from '@/components/emotion-token-test'
+import ZampleModal from '@/components/zample-modal'
+import EditUserModal from '@/components/edit-user-modal'
 
 function App() {
-  const [theme, setTheme] = useState('light')
-
-  const toggleTheme = () => {
-    setTheme(theme === 'light' ? 'dark' : 'light')
-  }
+  const [showModal, setShowModal] = useState(true)
+  const [showEditUserModal, setShowEditUserModal] = useState(false)
 
   return (
-    <div data-theme={theme} className="min-h-screen p-8 transition-all duration-300" style={{ 
+    <div className="min-h-screen p-8 transition-all duration-300" style={{ 
       backgroundColor: 'var(--color-surface-base)',
       color: 'var(--color-content-primary)',
     }}>
+      {/* Zample Modal */}
+      {showModal && (
+        <div 
+          className="fixed inset-0 z-50 flex items-center justify-center p-4"
+          style={{ backgroundColor: 'rgba(0, 0, 0, 0.5)' }}
+          onClick={() => setShowModal(false)}
+        >
+          <div onClick={(e) => e.stopPropagation()}>
+            <ZampleModal onClose={() => setShowModal(false)} />
+          </div>
+        </div>
+      )}
+
+      {/* Edit User Modal */}
+      <EditUserModal 
+        open={showEditUserModal}
+        onOpenChange={setShowEditUserModal}
+        defaultValues={{
+          username: 'johndoe',
+          email: 'john.doe@example.com'
+        }}
+      />
+
       <div className="max-w-4xl mx-auto">
         <h1 className="text-4xl font-bold mb-6" style={{ color: 'var(--color-brand-primary-500)' }}>
           Phase 3: Hybrid Setup Demo
@@ -26,17 +48,17 @@ function App() {
           Tailwind CSS + shadcn/ui + Design Tokens
         </p>
 
-        {/* Theme Toggle Section */}
+        {/* Button Variants & Modals Section */}
         <div className="mb-8 p-6 rounded-lg" style={{ backgroundColor: 'var(--color-surface-level-1)' }}>
           <h2 className="text-2xl font-semibold mb-4" style={{ color: 'var(--color-content-primary)' }}>
-            Theme Toggle
+            Button Variants & Modals
           </h2>
           <div className="flex gap-4 flex-wrap">
-            <Button onClick={toggleTheme} variant="default">
-              Toggle to {theme === 'light' ? 'Dark' : 'Light'} Mode
+            <Button onClick={() => setShowEditUserModal(true)} variant="default">
+              Open Edit User Modal
             </Button>
-            <Button variant="secondary">Secondary Button</Button>
             <Button variant="outline">Outline Button</Button>
+            <Button variant="secondary">Secondary Button</Button>
             <Button variant="destructive">Destructive Button</Button>
           </div>
         </div>
@@ -153,7 +175,7 @@ function App() {
           <div className="mt-6 p-4 bg-info/10 border-l-4 border-info rounded-r-lg">
             <p className="text-content-primary font-semibold mb-2">🎉 Key Achievement:</p>
             <p className="text-content-subtle text-sm">
-              You now have a complete hybrid styling system! Use <code className="bg-surface-1 text-content-primary px-2 py-1 rounded">bg-surface-action</code> for static styles, and Emotion's <code className="bg-surface-1 text-content-primary px-2 py-1 rounded">css</code> prop for dynamic, runtime-dependent styling. Switch themes with the toggle above to see everything adapt instantly!
+              You now have a complete hybrid styling system! Use <code className="bg-surface-1 text-content-primary px-2 py-1 rounded">bg-surface-action</code> for static styles, and Emotion's <code className="bg-surface-1 text-content-primary px-2 py-1 rounded">css</code> prop for dynamic, runtime-dependent styling with design tokens!
             </p>
           </div>
         </div>

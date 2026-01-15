@@ -11,6 +11,8 @@ All foundational work is complete. Figma MCP is working and has been successfull
 - ✅ Input (shadcn/ui)
 - ✅ Label (shadcn/ui)
 - ✅ Dialog (shadcn/ui)
+- ✅ EditUserModal (custom)
+- ✅ ZampleModal (demo)
 
 ---
 
@@ -116,7 +118,7 @@ All foundational work is complete. Figma MCP is working and has been successfull
 
 ### 6. Expand Storybook Documentation
 
-**Current Stories**: 33+ (Button: 15+, Card: 11, SubmitButton: 7)
+**Current Stories**: 40+ (Button: 15+, Card: 11, SubmitButton: 7, EditUserModal: 3+, ZampleModal: 1+)
 
 **Add Stories For**:
 - [ ] Component variations

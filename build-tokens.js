@@ -14,8 +14,17 @@ ${dictionary.allTokens
   .map(token => {
     let value = token.value;
     // Add px to numeric values that aren't 0
-    if (typeof value === 'number' && value !== 0 && token.type === 'dimension') {
-      value = `${value}px`;
+    // Check for spacing, border radius, font size, or dimension types
+    if (typeof value === 'number' && value !== 0) {
+      const needsPx = token.type === 'dimension' || 
+                      token.type === 'number' ||
+                      token.type === 'fontSizes' ||
+                      token.name.includes('spacing') || 
+                      token.name.includes('radius') ||
+                      token.name.includes('font-size');
+      if (needsPx) {
+        value = `${value}px`;
+      }
     }
     return `  --${token.name}: ${value};`;
   })
@@ -27,7 +36,8 @@ ${dictionary.allTokens
 
 // Build for light theme (default :root)
 const sdLight = new StyleDictionary({
-  source: ['tokens/fdb-design-tokens.json'],
+  log: { verbosity: 'verbose' },  // Enable verbose logging
+  source: ['tokens/fdb-design-tokens-resolved.json'],
   platforms: {
     css: {
       buildPath: 'build/css/',
@@ -37,7 +47,7 @@ const sdLight = new StyleDictionary({
           destination: 'variables.css',
           format: 'css/variables-px',
           options: {
-            outputReferences: false
+            outputReferences: false  // Disable - already resolved by flatten script
           }
         }
       ]
@@ -50,7 +60,7 @@ const sdLight = new StyleDictionary({
           destination: 'theme-light.js',
           format: 'javascript/es6',
           options: {
-            outputReferences: false
+            outputReferences: false  // Resolve all references to actual values
           }
         }
       ]
@@ -58,48 +68,11 @@ const sdLight = new StyleDictionary({
   }
 });
 
-// Build for dark theme
-const sdDark = new StyleDictionary({
-  source: ['tokens/fdb-design-tokens-dark.json'],
-  platforms: {
-    css: {
-      buildPath: 'build/css/',
-      transforms: ['attribute/cti', 'name/kebab', 'color/css'],
-      files: [
-        {
-          destination: 'variables-dark.css',
-          format: 'css/variables-px',
-          options: {
-            selector: '[data-theme="dark"]',
-            outputReferences: false
-          }
-        }
-      ]
-    },
-    js: {
-      buildPath: 'build/js/',
-      transforms: ['attribute/cti', 'name/camel', 'color/hex'],
-      files: [
-        {
-          destination: 'theme-dark.js',
-          format: 'javascript/es6',
-          options: {
-            outputReferences: false
-          }
-        }
-      ]
-    }
-  }
-});
-
-console.log('Building light theme tokens...');
+console.log('Building light theme tokens from GitHub...');
 await sdLight.buildAllPlatforms();
-
-console.log('Building dark theme tokens...');
-await sdDark.buildAllPlatforms();
 
 console.log('✅ Tokens built successfully!');
 console.log('📁 CSS Output: build/css/variables.css');
-console.log('📁 CSS Output: build/css/variables-dark.css');
 console.log('📁 JS Output: build/js/theme-light.js');
-console.log('📁 JS Output: build/js/theme-dark.js');
+console.log('');
+console.log('ℹ️  Note: Dark theme disabled - using light theme only');

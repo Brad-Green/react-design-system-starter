@@ -4,6 +4,7 @@ import { ThemeProvider } from '@emotion/react'
 import App from './App.jsx'
 import './index.css'
 import '../build/css/variables.css'
+import '../build/css/variables-compat.css'  // Compatibility layer for old token names
 import '../build/css/variables-dark.css'
 import { lightTheme, darkTheme } from './theme/emotionTheme.js'
 

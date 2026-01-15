@@ -5,132 +5,139 @@
  * for use with Emotion's ThemeProvider.
  * 
  * This provides runtime access to design tokens for dynamic styling.
+ * 
+ * Updated to work with GitHub token structure (FDB tokens)
  */
 
 import * as lightTokens from '../../build/js/theme-light.js';
-import * as darkTokens from '../../build/js/theme-dark.js';
 
 /**
  * Structure flat token exports into nested theme object
+ * Maps GitHub FDB tokens to the expected theme structure
  */
 function structureTheme(tokens) {
+  // Use FDB purple as primary brand color
+  const primaryColor = tokens.rawColorsMode1FdbOfficialPurple || '#672cbf';
+  const darkBlue = tokens.rawColorsMode1FdbOfficialDarkBlue || '#104e64';
+  
   return {
     color: {
       brand: {
         primary: {
-          50: tokens.colorBrandPrimary50,
-          100: tokens.colorBrandPrimary100,
-          200: tokens.colorBrandPrimary200,
-          300: tokens.colorBrandPrimary300,
-          400: tokens.colorBrandPrimary400,
-          500: tokens.colorBrandPrimary500,
-          600: tokens.colorBrandPrimary600,
-          700: tokens.colorBrandPrimary700,
-          800: tokens.colorBrandPrimary800,
-          900: tokens.colorBrandPrimary900,
+          50: tokens.rawColorsMode1Slate50,
+          100: tokens.rawColorsMode1Slate100,
+          200: tokens.rawColorsMode1Slate200,
+          300: tokens.rawColorsMode1Slate300,
+          400: tokens.rawColorsMode1Slate400,
+          500: primaryColor,  // FDB Purple
+          600: primaryColor,  // FDB Purple
+          700: darkBlue,      // FDB Dark Blue
+          800: darkBlue,      // FDB Dark Blue
+          900: darkBlue,      // FDB Dark Blue
         },
         secondary: {
-          50: tokens.colorBrandSecondary50,
-          100: tokens.colorBrandSecondary100,
-          200: tokens.colorBrandSecondary200,
-          300: tokens.colorBrandSecondary300,
-          400: tokens.colorBrandSecondary400,
-          500: tokens.colorBrandSecondary500,
-          600: tokens.colorBrandSecondary600,
-          700: tokens.colorBrandSecondary700,
-          800: tokens.colorBrandSecondary800,
-          900: tokens.colorBrandSecondary900,
+          50: tokens.rawColorsMode1Neutral50,
+          100: tokens.rawColorsMode1Neutral100,
+          200: tokens.rawColorsMode1Neutral200,
+          300: tokens.rawColorsMode1Neutral300,
+          400: tokens.rawColorsMode1Neutral400,
+          500: tokens.rawColorsMode1Neutral500,
+          600: tokens.rawColorsMode1Neutral600,
+          700: tokens.rawColorsMode1Neutral700,
+          800: tokens.rawColorsMode1Neutral800,
+          900: tokens.rawColorsMode1Neutral900,
         },
       },
       neutral: {
         grey: {
-          50: tokens.colorNeutralGrey50,
-          100: tokens.colorNeutralGrey100,
-          200: tokens.colorNeutralGrey200,
-          300: tokens.colorNeutralGrey300,
-          400: tokens.colorNeutralGrey400,
-          500: tokens.colorNeutralGrey500,
-          600: tokens.colorNeutralGrey600,
-          700: tokens.colorNeutralGrey700,
-          800: tokens.colorNeutralGrey800,
-          900: tokens.colorNeutralGrey900,
-          950: tokens.colorNeutralGrey950,
+          50: tokens.rawColorsMode1Neutral50,
+          100: tokens.rawColorsMode1Neutral100,
+          200: tokens.rawColorsMode1Neutral200,
+          300: tokens.rawColorsMode1Neutral300,
+          400: tokens.rawColorsMode1Neutral400,
+          500: tokens.rawColorsMode1Neutral500,
+          600: tokens.rawColorsMode1Neutral600,
+          700: tokens.rawColorsMode1Neutral700,
+          800: tokens.rawColorsMode1Neutral800,
+          900: tokens.rawColorsMode1Neutral900,
+          950: tokens.rawColorsMode1Neutral950,
         },
       },
       signal: {
         success: {
-          500: tokens.colorSignalSuccess500,
-          600: tokens.colorSignalSuccess600,
+          500: tokens.semanticColorsFdbChartStaticGreen2 || '#00c951',
+          600: tokens.semanticColorsFdbChartStaticGreen3 || '#00a63e',
         },
         warning: {
-          500: tokens.colorSignalWarning500,
-          600: tokens.colorSignalWarning600,
+          500: tokens.semanticColorsFdbChartStaticAmber2 || '#fe9a00',
+          600: tokens.semanticColorsFdbChartStaticAmber3 || '#e17100',
         },
         error: {
-          500: tokens.colorSignalError500,
-          600: tokens.colorSignalError600,
+          500: tokens.semanticColorsFdbChartStaticRose2 || '#ff2056',
+          600: tokens.semanticColorsFdbChartStaticRose3 || '#ec003f',
         },
         info: {
-          500: tokens.colorSignalInfo500,
-          600: tokens.colorSignalInfo600,
+          500: tokens.semanticColorsFdbChartStaticBlue2 || '#2b7fff',
+          600: tokens.semanticColorsFdbChartStaticBlue3 || '#155dfc',
         },
       },
       surface: {
-        base: tokens.colorSurfaceBase,
-        level1: tokens.colorSurfaceLevel1,
-        level2: tokens.colorSurfaceLevel2,
-        level3: tokens.colorSurfaceLevel3,
-        action: tokens.colorSurfaceAction,
-        disabled: tokens.colorSurfaceDisabled,
+        base: tokens.semanticColorsFdbGeneralBackground,
+        level1: tokens.semanticColorsFdbGeneralSecondary,
+        level2: tokens.semanticColorsFdbGeneralMuted,
+        level3: tokens.semanticColorsFdbGeneralAccent,
+        action: tokens.semanticColorsFdbGeneralPrimary,
+        disabled: tokens.semanticColorsFdbUnofficialBorder1,
       },
       content: {
-        primary: tokens.colorContentPrimary,
-        subtle: tokens.colorContentSubtle,
-        muted: tokens.colorContentMuted,
-        action: tokens.colorContentAction,
-        onAction: tokens.colorContentOnAction,
-        disabled: tokens.colorContentDisabled,
+        primary: tokens.semanticColorsFdbGeneralForeground,
+        subtle: tokens.semanticColorsFdbGeneralMutedForeground,
+        muted: tokens.semanticColorsFdbGeneralMutedForeground,
+        action: tokens.semanticColorsFdbGeneralPrimary,
+        onAction: tokens.semanticColorsFdbGeneralPrimaryForeground,
+        disabled: tokens.semanticColorsFdbGeneralMutedForeground,
       },
       border: {
-        default: tokens.colorBorderDefault,
-        action: tokens.colorBorderAction,
-        disabled: tokens.colorBorderDisabled,
+        default: tokens.semanticColorsFdbGeneralBorder,
+        action: tokens.semanticColorsFdbGeneralPrimary,
+        disabled: tokens.semanticColorsFdbUnofficialBorder3,
       },
     },
     spacing: {
-      0: tokens.spacing0,
-      1: tokens.spacing4,
-      2: tokens.spacing8,
-      3: tokens.spacing12,
-      4: tokens.spacing16,
-      5: tokens.spacing20,
-      6: tokens.spacing24,
-      8: tokens.spacing32,
-      10: tokens.spacing40,
-      12: tokens.spacing48,
-      16: tokens.spacing64,
-      20: tokens.spacing80,
-      24: tokens.spacing96,
+      0: tokens.spacingFdbAbsolute0,
+      1: tokens.spacingFdbAbsolute1,
+      2: tokens.spacingFdbAbsolute2,
+      3: tokens.spacingFdbAbsolute3,
+      4: tokens.spacingFdbAbsolute4,
+      5: tokens.spacingFdbAbsolute5,
+      6: tokens.spacingFdbAbsolute6,
+      8: tokens.spacingFdbAbsolute8,
+      10: tokens.spacingFdbAbsolute10,
+      12: tokens.spacingFdbAbsolute12,
+      16: tokens.spacingFdbAbsolute16,
+      20: tokens.spacingFdbAbsolute20,
+      24: tokens.spacingFdbAbsolute24,
     },
     borderRadius: {
-      none: tokens.borderRadiusNone,
-      sm: tokens.borderRadiusSm,
-      md: tokens.borderRadiusMd,
-      lg: tokens.borderRadiusLg,
-      xl: tokens.borderRadiusXl,
+      none: tokens.borderRadiiFdbSemanticRoundedNone,
+      sm: tokens.borderRadiiFdbSemanticRoundedSm,
+      md: tokens.borderRadiiFdbSemanticRoundedMd,
+      lg: tokens.borderRadiiFdbSemanticRoundedLg,
+      xl: tokens.borderRadiiFdbSemanticRoundedXl,
     },
     borderWidth: {
-      none: tokens.borderWidthNone,
-      thin: tokens.borderWidthThin,
-      medium: tokens.borderWidthMedium,
-      thick: tokens.borderWidthThick,
+      none: 0,
+      thin: 1,
+      medium: 2,
+      thick: 4,
     },
   };
 }
 
 // Create structured theme objects
 export const lightTheme = structureTheme(lightTokens);
-export const darkTheme = structureTheme(darkTokens);
+// Dark theme uses same tokens for now (light theme only per user request)
+export const darkTheme = lightTheme;
 
 // Export theme type for TypeScript (if needed in future)
 // export type Theme = typeof lightTheme;

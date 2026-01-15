@@ -140,24 +140,21 @@ function DynamicComponent({ progress, isActive }) {
 
 ### Theme System
 
-The design system supports automatic light/dark theme switching:
+The design system uses a light theme with design tokens:
 
-- Themes are controlled via the `data-theme` attribute on the root element
-- CSS variables automatically update based on theme
-- Emotion theme object syncs with CSS variables
+- Design tokens are defined as CSS variables
+- Emotion theme object provides runtime access to tokens
+- All styling references tokens for consistency
 - No manual theme handling required in components
-
-```jsx
-// Theme switching is automatic
-document.documentElement.setAttribute('data-theme', 'dark');
-```
 
 ## 📚 Documentation
 
 - **[AGENTS.md](./AGENTS.md)** - AI governance rules and styling guidelines
 - **[TOKEN_MAPPING_REFERENCE.md](./TOKEN_MAPPING_REFERENCE.md)** - Complete token mapping guide
+- **[COMPONENT_BUILDING_GUIDE.md](./COMPONENT_BUILDING_GUIDE.md)** - Guide for building components with shadcn/ui
 - **[STORYBOOK_SETUP.md](./STORYBOOK_SETUP.md)** - Storybook configuration and usage
 - **[SESSION_SUMMARY.md](./SESSION_SUMMARY.md)** - Project setup history and decisions
+- **[NEXT_STEPS.md](./NEXT_STEPS.md)** - Project roadmap and next actions
 
 ## 🔗 Figma Integration
 
@@ -192,6 +189,9 @@ The Figma MCP (Model Context Protocol) server enables AI-assisted component gene
 - **Dialog** - Modal dialog component (Radix UI)
 - **Input** - Form input component
 - **Label** - Form label component
+- **EditUserModal** - Modal dialog for editing user information
+- **ZampleModal** - Example modal demonstrating design system patterns
+- **SubmitButton** - Primary action button with icon
 
 ### Adding New Components
 
